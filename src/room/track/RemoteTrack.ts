@@ -46,6 +46,7 @@ export default abstract class RemoteTrack extends Track {
   }
 
   stop() {
+    console.log(`STOPPING TRACK ${this.sid}`);
     this.stopMonitor();
     // use `enabled` of track to enable re-use of transceiver
     super.disable();
