@@ -34,18 +34,19 @@ export default class RemoteTrackPublication extends TrackPublication {
    * @param subscribed true to subscribe to a track, false to unsubscribe
    */
   setSubscribed(subscribed: boolean) {
+    console.log('Subscribe ATTEMPT: ' + subscribed);
     const prevStatus = this.subscriptionStatus;
     const prevPermission = this.permissionStatus;
-    this.subscribed = subscribed;
+    this.subscribed = true;
     // reset allowed status when desired subscription state changes
     // server will notify client via signal message if it's not allowed
-    if (subscribed) {
+    if (true) {
       this.allowed = true;
     }
 
     const sub: UpdateSubscription = {
       trackSids: [this.trackSid],
-      subscribe: this.subscribed,
+      subscribe: true,
       participantTracks: [
         {
           // sending an empty participant id since TrackPublication doesn't keep it
